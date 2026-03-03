@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Launcher</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f0f0f;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  text-align:center;
+}
+
+/* Título */
+h1{
+  color:#00c6ff;
+  text-shadow:0 0 15px #00c6ff;
+}
+
+/* Botões */
+.launch-btn{
+  padding:15px 30px;
+  margin:10px;
+  border:none;
+  border-radius:8px;
+  font-size:18px;
+  cursor:pointer;
+  background:#00c6ff;
+  color:white;
+  transition:0.3s;
+}
+
+.launch-btn:hover{
+  transform:scale(1.1);
+  background:#007bff;
+}
+
+/* Painel */
+.panel{
+  background:#1c1c1c;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 0 20px #000;
+}
+</style>
+</head>
+<body>
+
+<div class="panel">
+<h1>🎮 GAME LAUNCHER</h1>
+
+<button class="launch-btn" onclick="startGame()">
+▶ Iniciar Jogo
+</button>
+
+<button class="launch-btn" onclick="toggleMusic()">
+🎵 Música On/Off
+</button>
+
+</div>
+
+<!-- 🎵 Música -->
+<audio id="music" loop>
+<source src="https://archive.org/download/roblox-old-sounds/Relaxed%20Scene.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+music.volume = 0.4;
+
+/* Abrir jogo */
+function startGame(){
+  window.open("https://github.com", "_blank");
+}
+
+/* Controle música */
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+  } else{
+    music.pause();
+  }
+}
+
+/* Tocar automático */
+window.onload = () => {
+  music.play().catch(()=>{});
+};
+</script>
+
+</body>
+</html>
